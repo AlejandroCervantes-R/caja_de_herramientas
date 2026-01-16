@@ -4,20 +4,23 @@ def es_primo(numero):
     for i in range(2, numero):
         if numero < 2:
                 print(f"{numero} no es primo")
+                return False
         if numero % i == 0:
             print(f"{numero} no es primo")
             return False
     print(f"{numero} es primo")
     return True
 def primo_hasta(n):
+    if n < 2:
+        return
+        print(f"{n} no es primo")
     for i in range(2, n):
-        if n < 2:
-            print(f"{n} no es primo")
-            continue
-        if i % n == 0:
-            print(f"{i} no es primo")
-            continue
-        print(f"{i} es primo")  
+        for d in range(2, i):
+            if i % d == 0:
+                print(f"{i} no es primo")
+                break
+        else:
+            print(f"{i} si es primo")
 def validar_varias_contrasenas(*contrasenas, **ops):
     min_length = ops.get('min_length', 8)
     contrasenas_no_validas = []
@@ -49,4 +52,4 @@ def validar_varias_contrasenas(*contrasenas, **ops):
         "contrasenas_no_validas": contrasenas_no_validas,
         "numero de contrasenas no validas": len(contrasenas_no_validas)
     }
-print(primo_hasta(5))
+print(primo_hasta(10))
