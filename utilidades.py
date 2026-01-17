@@ -12,8 +12,8 @@ def es_primo(numero):
     return True
 def primo_hasta(n):
     if n < 2:
-        return
         print(f"{n} no es primo")
+        return 
     for i in range(2, n):
         for d in range(2, i):
             if i % d == 0:
@@ -52,4 +52,4 @@ def validar_varias_contrasenas(*contrasenas, **ops):
         "contrasenas_no_validas": contrasenas_no_validas,
         "numero de contrasenas no validas": len(contrasenas_no_validas)
     }
-print(primo_hasta(10))
+print(primo_hasta(1))
