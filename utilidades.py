@@ -1,11 +1,10 @@
 def validar_contrasena(contrasena,**ops):
     min_lengt = ops.get("min_lengt", 8)
     errores = []
-    
-    if len(contrasena) < min_lengt:
-        errores.append(f"longitud minima es {min_lengt}")
     if not isinstance(contrasena, str):
         return False, "La contraseña debe ser texto"
+    if len(contrasena) < min_lengt:
+        errores.append(f"longitud minima es {min_lengt}")
     if not any(c.isupper() for c in contrasena):
         errores.append("Falta mayuscula")
     if not any(c.islower() for c in contrasena):
@@ -67,4 +66,4 @@ def validar_varias_contrasenas(*contrasenas, **ops):
         "contrasenas_no_validas": contrasenas_no_validas,
         "numero de contrasenas no validas": len(contrasenas_no_validas)
     }
-print(validar_contrasena(12345, min_lengt=10))
+print(primo_hasta(10))
