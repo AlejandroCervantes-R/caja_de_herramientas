@@ -1,4 +1,4 @@
-from utilidades import (validar_contrasena, es_primo, primo_hasta, validar_varias_contrasenas)
+from utilidades import (validar_contrasena, es_primo, primo_hasta, validar_varias_contrasenas, examinador_texto)
 def menu():
     while True:
         try:
@@ -7,7 +7,8 @@ def menu():
             print("2. --Verificar si un número es primo--")
             print("3. --verificar varios numeros primos--")
             print("4. --Validar varias contraseñas--")
-            print("5. ------ Salir ------")
+            print("5. --Examinar texto--")
+            print("6. ------ Salir ------")
             input_usuario = int(input("Seleccione una opción: "))
             if input_usuario == 1:
                 min_length = int(input("ingresa la longitud minima de la contrasena: "))
@@ -33,13 +34,18 @@ def menu():
                 print(validar_varias_contrasenas(*lista_contrasenas, min_length=min_length))
                 continue
             elif input_usuario == 5:
+                respuesta_usuario = input("ingresa la contraseña que quiere examinar: ")
+                print(examinador_texto(respuesta_usuario))  
+            elif input_usuario == 6:
                 print("Saliendo del programa")
                 break
         except ValueError:
             print("Por favor ingresa una opción válida.")
             continue
+
+
 if __name__ == "__main__":
-    print(menu())
+    menu()
 
 
 
